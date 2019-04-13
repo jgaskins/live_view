@@ -149,7 +149,7 @@ abstract class LiveView
     <<-HTML
       <script src="https://unpkg.com/preact@8.4.2/dist/preact.min.js"></script>
       <script src="https://unpkg.com/preact-html-converter@0.4.2/dist/preact-html-converter.browser.js"></script>
-      <script src="https://github.com/jgaskins/live_view/tree/master/js/live-view.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/jgaskins/live_view/js/live-view.min.js"></script>
     HTML
   end
 
