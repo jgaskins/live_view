@@ -34,7 +34,7 @@ abstract class LiveView
     @__live_view_id__ = id
     CHANNELS[live_view_id.to_s] = Channel.new(self)
     io << %{<div data-live-view="#{live_view_id}"><div>}
-    render io
+    render_to io
     io << %{</div></div>}
   end
 
@@ -58,13 +58,13 @@ abstract class LiveView
   end
 
   macro template(filename)
-    def render(io)
+    def render_to(io)
       ECR.embed {{filename}}, io
     end
   end
 
   macro render(string)
-    def render(io)
+    def render_to(io)
       io << {{string}}
     end
   end
@@ -74,7 +74,7 @@ abstract class LiveView
   end
 
   def update(socket : HTTP::WebSocket, buffer = IO::Memory.new)
-    render buffer
+    render_to buffer
 
     json = {
       render: buffer.to_s,
@@ -194,10 +194,6 @@ abstract class LiveView
 
     def has_mounted?
       @has_mounted
-    end
-
-    def render
-      @live_view.render
     end
   end
 end
