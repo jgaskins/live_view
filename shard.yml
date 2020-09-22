@@ -1,9 +1,9 @@
 name: live_view
-version: 0.1.0
+version: 0.1.1
 
 authors:
   - Jamie Gaskins <jgaskins@gmail.com>
 
-crystal: 0.27.2
+crystal: 0.34.0
 
 license: MIT
