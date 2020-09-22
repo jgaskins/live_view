@@ -160,7 +160,7 @@ abstract class LiveView
 
     @sockets = Set(HTTP::WebSocket).new
     @has_mounted = false
-    @created_at = Time.now
+    @created_at = Time.utc
 
     def initialize(@live_view : LiveView)
     end
@@ -181,7 +181,7 @@ abstract class LiveView
     end
 
     def age
-      Time.now - @created_at
+      Time.utc - @created_at
     end
 
     def disconnected?
