@@ -34,7 +34,7 @@ end
 In your HTML layout:
 
 ```html
-  <%= LiveView.script_tag %>
+  <%= LiveView.javascript_tag %>
 ```
 
 ### Rendering
