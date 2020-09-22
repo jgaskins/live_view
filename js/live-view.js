@@ -36,8 +36,11 @@
     'click',
     'change',
     'input',
+    'submit',
   ].forEach(event_type => {
     document.addEventListener(event_type, event => {
+      if (event_type === 'submit') { event.preventDefault() }
+
       var element = event.target;
       var event_name = element.getAttribute('live-' + event_type);
 
