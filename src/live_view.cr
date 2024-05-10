@@ -16,7 +16,7 @@ abstract class LiveView
       # too long without being mounted. Right now, we're defining that threshold
       # as having gone an entire GC interval (our channel-related GC, not
       # Crystal's) without having been mounted.
-      CHANNELS.delete_if do |key, channel|
+      CHANNELS.reject! do |key, channel|
         channel.disconnected? && (
           channel.has_mounted? || channel.age > GC_INTERVAL
         )
